@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Projekt_biluthyrning {
-	internal class Trailer : VehicleInfo {
+	//internal class Trailer : VehicleInfo {
 
-	}
+	//}
 }

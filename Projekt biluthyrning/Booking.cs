@@ -10,17 +10,21 @@ namespace Projekt_biluthyrning {
 		protected int Age;
 		protected string Address;
 		protected int Phonenumber;
+		protected string PickUpPlace;
 		protected string PickUpDate;
 		protected string EndDate;
 
-		public Booking(string inputName, int inputAge, string inputAddress, int inputPhonenumber, string inputPickUpDate, string inputEndDate) {
+		public Booking(string inputName, int inputAge, string inputAddress, int inputPhonenumber, string inputPickUpPlace,string inputPickUpDate, string inputEndDate) {
 			Name = inputName;
 			Age = inputAge;
 			Address = inputAddress;
 			Phonenumber = inputPhonenumber;
+			PickUpPlace = inputPickUpPlace;
 			PickUpDate = inputPickUpDate;
 			EndDate = inputEndDate;
 		}
+
+		
 			
 		
 		}
