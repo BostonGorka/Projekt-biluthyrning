@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Projekt_biluthyrning {
 	internal class UserInterface {
-		VehicleInfo vehicleInfo;
+		
+		
 
 		public void StartPage() {
 			Console.WriteLine("-------------------------------------------------------------------");
@@ -32,7 +33,7 @@ namespace Projekt_biluthyrning {
 
 		}
 
-		public void BookingSpecifications() {
+		public Booking BookingSpecifications() {
 			Console.WriteLine("Skriv in ditt för samt efternamn");
 			string inputName = Console.ReadLine();
 			while (inputName == "") {
@@ -103,29 +104,82 @@ namespace Projekt_biluthyrning {
 			
 
 			Booking booking = new Booking(inputName, age, inputAddress, phoneNumber, inputPickUpPlace, inputPickupDate, inputEndDate);
+			return booking;
 		}
 
+		
 		public void VehicleBooking() {
 			Console.WriteLine("Välj mellan dessa karosstyper");
 			Console.WriteLine("------------------------------");
 			Console.WriteLine("1. Sedan");
 			Console.WriteLine("2. Kombi");
 			Console.WriteLine("3. SUV");
-			vehicleInfo.CarType = Console.ReadLine();
-
+			string CarType = Console.ReadLine();
+			if(CarType == "1") {
+				CarType = "Sedan";
+			}else if(CarType == "2") {
+				CarType = "Kombi";
+			}else if (CarType == "3") {
+				CarType = "SUV";
+			}
 			Console.Clear();
 
 			Console.WriteLine("Välj mellan dessa drivmedel");
 			Console.WriteLine("---------------------------");
 			Console.WriteLine("1. Bensin");
 			Console.WriteLine("2. Diesel");
-			Console.WriteLine("3. El");
+			Console.WriteLine("3. Elektrisk");
 			Console.WriteLine("4. CNG");
-			vehicleInfo.Fueltype = Console.ReadLine();
+			string Fueltype = Console.ReadLine();
 
+			if(Fueltype == "1") {
+				Fueltype = "Bensin";
+			}else if (Fueltype == "2") {
+				Fueltype = "Diesel";
+			}else if (Fueltype == "3") {
+				Fueltype = "Elektrisk";
+			}else if (Fueltype == "4") {
+				Fueltype = "CNG";
+			}
 			Console.Clear();
 
+			Console.WriteLine("Välj din växellåda");
+			Console.WriteLine("-------------------");
+			Console.WriteLine("1. Manuell");
+			Console.WriteLine("2. Automat");
+			string Gearbox = Console.ReadLine();
 
+			if(Gearbox == "1") {
+				Gearbox = "Manuell";
+			}else if(Gearbox == "2") {
+				Gearbox = "Automat";
+			}
+			Console.Clear();
+
+			Console.WriteLine("Välj drivlina");
+			Console.WriteLine("---------------");
+			Console.WriteLine("1. FWD");
+			Console.WriteLine("2. RWD");
+			Console.WriteLine("3. AWD");
+			string Drivetrain = Console.ReadLine();
+			if(Drivetrain == "1") {
+				Drivetrain = "FWD";
+			}else if (Drivetrain == "2") {
+				Drivetrain = "RWD";
+			}else if(Drivetrain == "3") {
+				Drivetrain = "AWD";
+			}
+			Console.Clear();
+
+			Console.WriteLine("Nedan visas bilar utifrån dina önskemål");
+			List<CarInfo> PossibleCarChoices = CarInfo.MethodOfElimination(CarType, Gearbox, Fueltype, Drivetrain);
+			for(int i = 0; i < PossibleCarChoices.Count; i++) {
+				Console.WriteLine(PossibleCarChoices[i].CarType + PossibleCarChoices[i].Gearbox + PossibleCarChoices[i].Fueltype + PossibleCarChoices[i].Drivetrain);
+			}
+
+			Console.WriteLine();
 		}
+
+		
 	}
 }

@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace Projekt_biluthyrning {
 	internal class LastInfo{
-		Booking booking;
-		UserInterface userInterface;
 		
 	}
 }
