@@ -14,8 +14,7 @@ namespace Projekt_biluthyrning {
 			Console.WriteLine("Welcome, we have very good rental cars here at CarRentCenter.Com");
 			Console.WriteLine("-------------------------------------------------------------------");
 			Console.WriteLine("1. Boka samt specificera din hyrbil");
-			Console.WriteLine("--------------------------------------------");
-			Console.WriteLine("2. Boka samt specificera din hyrsläpvagn");
+			
 
 
 			string userInterFace = Console.ReadLine();
@@ -174,11 +173,19 @@ namespace Projekt_biluthyrning {
 			Console.WriteLine("Nedan visas bilar utifrån dina önskemål");
 			List<CarInfo> PossibleCarChoices = CarInfo.MethodOfElimination(CarType, Gearbox, Fueltype, Drivetrain);
 			for(int i = 0; i < PossibleCarChoices.Count; i++) {
-				Console.WriteLine(PossibleCarChoices[i].CarType + PossibleCarChoices[i].Gearbox + PossibleCarChoices[i].Fueltype + PossibleCarChoices[i].Drivetrain);
+				Console.WriteLine(PossibleCarChoices[i].CarModel);
 			}
 
-			Console.WriteLine();
+			Console.WriteLine("Välj din bil");
+			string inputChosenCar = Console.ReadLine();
+			int inputChosenCarAsInt = int.Parse(inputChosenCar);
+			CarInfo ChosenCar = PossibleCarChoices[inputChosenCarAsInt - 1];
+
+			
+			
 		}
+
+		
 
 		
 	}
