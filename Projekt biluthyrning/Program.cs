@@ -10,10 +10,7 @@ namespace Projekt_biluthyrning {
 			UserInterface userInterface = new UserInterface();
 			userInterface.StartPage();
 
-			UserInterface userInterface1 = new UserInterface();
-			userInterface1.VehicleBooking();
-
-			userInterface.BookingSpecifications
+			
 		}
 	}
 }

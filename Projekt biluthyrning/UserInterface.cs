@@ -11,24 +11,31 @@ namespace Projekt_biluthyrning {
 
 		public void StartPage() {
 			Console.WriteLine("-------------------------------------------------------------------");
-			Console.WriteLine("Welcome, we have very good rental cars here at CarRentCenter.Com");
+			Console.WriteLine("Välkommen till Carrent.com, vi har dem bästa hyrbilarna på marknaden");
 			Console.WriteLine("-------------------------------------------------------------------");
 			Console.WriteLine("1. Boka samt specificera din hyrbil");
 			
 
 
 			string userInterFace = Console.ReadLine();
-			int userInterFaceInput = int.Parse(userInterFace);
-			if (userInterFaceInput == 1) {
-				BookingSpecifications();
-			} else if (userInterFaceInput == 2) {
+			Booking bookingLastInfo = BookingSpecifications();
 
+			CarInfo vehicleSpecifications = VehicleBooking();
+
+			LastInfo lastInfo = new LastInfo();
+			lastInfo.Summary(bookingLastInfo, vehicleSpecifications);
+
+			Console.WriteLine("Är du säker på att du vill slutföra bokning");
+			string confirmBooking = Console.ReadLine();
+			if(confirmBooking == "ja") {
+				Console.Clear();
+				Console.WriteLine("Din bokning är nu slutförd");
+			}else if(confirmBooking == "nej") {
+				Console.Clear();
+				Console.WriteLine("Din bokning avbröts");
 			} else {
 				Console.WriteLine("Ogiltig input, försök igen");
-				userInterFace = Console.ReadLine();
-			}
-			Console.Clear();
-
+				confirmBooking = Console.ReadLine();			}
 
 		}
 
@@ -107,7 +114,7 @@ namespace Projekt_biluthyrning {
 		}
 
 		
-		public void VehicleBooking() {
+		public CarInfo VehicleBooking() {
 			Console.WriteLine("Välj mellan dessa karosstyper");
 			Console.WriteLine("------------------------------");
 			Console.WriteLine("1. Sedan");
@@ -181,6 +188,9 @@ namespace Projekt_biluthyrning {
 			int inputChosenCarAsInt = int.Parse(inputChosenCar);
 			CarInfo ChosenCar = PossibleCarChoices[inputChosenCarAsInt - 1];
 
+			
+			return ChosenCar;
+			
 			
 			
 		}
