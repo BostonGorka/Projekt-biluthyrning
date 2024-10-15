@@ -6,9 +6,36 @@ using System.Threading.Tasks;
 
 namespace Projekt_biluthyrning {
 	internal class CarInfo : VehicleInfo {
-		protected int HorsePower;
-		protected double FuelConsumption;
-		protected int Mileage;
+		private int _horsePower;
+		private double _fuelConsumption;
+		private int _mileage;
+
+		public int Horsepower {
+			get {
+				return _horsePower;
+			}
+			set {
+				_horsePower = value;
+			}
+		}
+
+		public double FuelConsumption {
+			get {
+				return _fuelConsumption;
+			}
+			set {
+				_fuelConsumption = value;
+			}
+		}
+
+		public int Mileage {
+			get {
+				return _mileage;
+			}
+			set {
+				_mileage = value;
+			}
+		}
 
 		/// <summary>
 		/// En konstruktor
@@ -22,9 +49,9 @@ namespace Projekt_biluthyrning {
 		/// <param name="inputDrivetrain">gör möjlig input för drivlina</param>
 		/// <param name="inputCarModel">gör möjlig input för bilmodell</param>
 		public CarInfo(int inputHorsePower, double inputFuelConsumption, int inputMileage, string inputCarType, string inputGearbox, string inputFueltype, string inputDrivetrain, string inputCarModel) : base(inputCarType, inputGearbox, inputFueltype, inputDrivetrain, inputCarModel) {
-			inputHorsePower = HorsePower;
-			inputFuelConsumption = FuelConsumption;
-			inputMileage = Mileage;
+			Horsepower = inputHorsePower;
+			FuelConsumption = inputFuelConsumption;
+			Mileage = inputMileage;
 		}
 		/// <summary>
 		/// Lista med tillgängliga bilar

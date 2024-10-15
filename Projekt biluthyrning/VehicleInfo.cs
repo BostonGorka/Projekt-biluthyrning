@@ -12,7 +12,7 @@ namespace Projekt_biluthyrning {
 		public string Drivetrain;
 		public string CarModel;
 		/// <summary>
-		/// En konstruktor
+		/// En konstruktor som skickar med värden
 		/// </summary>
 		/// <param name="inputCarType">Gör möjlig input för biltyp</param>
 		/// <param name="inputGearbox">Gör möjlig input för växellåda</param>

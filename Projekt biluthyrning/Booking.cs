@@ -14,7 +14,7 @@ namespace Projekt_biluthyrning {
 		public string PickUpDate;
 		public string EndDate;
 		/// <summary>
-		/// En konstruktor
+		/// En konstruktor som skickar med värden
 		/// </summary>
 		/// <param name="inputName">Gör möjlig input för namn</param>
 		/// <param name="inputAge">Gör möjlig input för ålder</param>

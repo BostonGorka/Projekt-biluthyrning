@@ -29,17 +29,17 @@ namespace Projekt_biluthyrning {
 
 			Console.WriteLine("Är du säker på att du vill slutföra bokning");
 			string confirmBooking = Console.ReadLine().ToLower();
-			if (confirmBooking == "ja") {
-				Console.Clear();
-				Console.WriteLine("Din bokning är nu slutförd");
-			} else if (confirmBooking == "nej") {
-				Console.Clear();
-				Console.WriteLine("Din bokning avbröts");
-			} else {
-				Console.WriteLine("Ogiltig input, försök igen");
+			while (confirmBooking == "" ) {
+
+				Console.WriteLine("Ogiltig input försök igen");
 				confirmBooking = Console.ReadLine();
 			}
-
+			if (confirmBooking == "ja") {
+				Console.Clear();
+				Console.WriteLine("Din bokning är slutförd");
+			} else if (confirmBooking == "nej") {
+				Console.WriteLine("Din bokning avbröts");
+			}
 		}
 
 		/// <summary>
@@ -85,7 +85,7 @@ namespace Projekt_biluthyrning {
 			}
 
 			Console.Clear();
-			
+
 			Console.WriteLine("Välj upphämtningsplats: Stockholm, Göteborg eller Malmö");
 			string inputPickUpPlace = Console.ReadLine();
 			while (inputPickUpPlace == "" || (inputPickUpPlace != "Stockholm" && inputPickUpPlace != "Göteborg" && inputPickUpPlace != "Malmö")) {
@@ -106,7 +106,7 @@ namespace Projekt_biluthyrning {
 
 			Console.Clear();
 
-			Console.WriteLine("Skriv in återlämningsdatumet för ditt hyrfordon");
+			Console.WriteLine("Skriv in återlämningsdatumet för ditt hyrfordon (Dag/månad)");
 			string inputEndDate = Console.ReadLine();
 			while (inputEndDate == "") {
 				Console.WriteLine("Ogiltig input, försök igen");
@@ -116,7 +116,7 @@ namespace Projekt_biluthyrning {
 			Console.Clear();
 
 
-		
+
 			Booking booking = new Booking(inputName, age, inputAddress, phoneNumber, inputPickUpPlace, inputPickupDate, inputEndDate);
 			return booking;
 		}
@@ -216,10 +216,10 @@ namespace Projekt_biluthyrning {
 			}
 			Console.Clear();
 
-			Console.WriteLine("Nedan visas bilar utifrån dina önskemål");
+			Console.WriteLine("Nedan visas bilar utifrån dina önskemål:");
 			List<CarInfo> PossibleCarChoices = CarInfo.MethodOfElimination(CarType, Gearbox, Fueltype, Drivetrain);
 			for (int i = 0; i < PossibleCarChoices.Count; i++) {
-				Console.WriteLine(PossibleCarChoices[i].CarModel);
+				Console.WriteLine(i + 1 + ": " + PossibleCarChoices[i].CarModel);
 			}
 
 			Console.WriteLine("Välj din bil");
@@ -227,8 +227,10 @@ namespace Projekt_biluthyrning {
 			int inputChosenCarAsInt = int.Parse(inputChosenCar);
 			CarInfo ChosenCar = PossibleCarChoices[inputChosenCarAsInt - 1];
 
-
+			Console.Clear();
 			return ChosenCar;
+
+
 
 
 
