@@ -30,6 +30,7 @@ namespace Projekt_biluthyrning {
 			Console.WriteLine("Växellåda: " + carSum.Gearbox);
 			Console.WriteLine("Drivlina: " + carSum.Drivetrain);
 			Console.WriteLine("Bilmodelen: " + carSum.CarModel);
+			Console.WriteLine("Hästkrafter: " + carSum);
 			
 
 		}
